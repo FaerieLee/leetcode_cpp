@@ -30,7 +30,19 @@ string reverseWords(string s) {
 /*
  * 总结：1.未在原有字符串中进行修改，浪费空间
  *      2. 由于1中存在的问题，导致判断逻辑混乱，难以读懂
- *
+ * 样例代码：
+ *      string reverseWords(string s) {
+        int left = 0, right = 0;
+        while (right < s.size())
+        {
+            while (right < s.size() && s[right] != ' ') right++;
+            int tmp = right - 1;
+            while (left < tmp) swap(s[left++], s[tmp--]);
+            left = right + 1;
+            right ++;
+        }
+        return s;
+    }
  * */
 
 };
